@@ -14,6 +14,7 @@ No guarantee of support is provided and updates containing fixes are to be made 
 
 | Version | Supported with Bug Fixes | Supported with Security Fixes |
 | ------- | ------------------ |-------------------------------------|
+| 1.0     |  :white_check_mark: | :white_check_mark: | 
 
 ## Security Vulnerabilities
 Where it is possible to report a security vulnerability privately within the github page of one of my projects, please use this approach.
