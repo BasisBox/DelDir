@@ -9,6 +9,9 @@
         <IsPackable>false</IsPackable>
         <PublishSingleFile>true</PublishSingleFile>
         <SelfContained>false</SelfContained>
+        <Title>deldir 
+</Title>
+        <Authors />
     </PropertyGroup>
 
     <ItemGroup>
