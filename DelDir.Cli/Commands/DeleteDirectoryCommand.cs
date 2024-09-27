@@ -19,10 +19,7 @@ using System;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
-
-using Del.Library;
-using Del.Library.Extensions;
-
+using AlastairLundy.Extensions.IO.Directories;
 using DelDir.Cli.Localizations;
 
 using Spectre.Console;
@@ -73,8 +70,9 @@ public class DeleteDirectoryCommand : Command<DeleteDirectoryCommand.Settings>
             }
             if (settings.DirectoryToBeDeleted.Equals("*"))
             {
-
-                if (settings.DirectoryToBeDeleted.AreSubdirectoriesEmpty())
+                RecursiveDirectoryExplorer recursiveDirectoryExplorer = new RecursiveDirectoryExplorer();
+                
+                if (recursiveDirectoryExplorer.AreSubdirectoriesEmpty(settings.DirectoryToBeDeleted))
                 {
                     DirectoryRemover directoryRemover = new DirectoryRemover();
                     directoryRemover.DirectoryDeleted += OnDeleted;
@@ -88,7 +86,7 @@ public class DeleteDirectoryCommand : Command<DeleteDirectoryCommand.Settings>
                         }
                     }
                     
-                    directoryRemover.DeleteRecursively(settings.DirectoryToBeDeleted, true);
+                    directoryRemover.DeleteDirectoryRecursively(settings.DirectoryToBeDeleted, true);
                     
                     if (settings.RemoveEmptyParentDirectories)
                     {
@@ -118,7 +116,7 @@ public class DeleteDirectoryCommand : Command<DeleteDirectoryCommand.Settings>
                         }
                     }
                     
-                    directoryRemover.DeleteDirectory(settings.DirectoryToBeDeleted, true);
+                    directoryRemover.DeleteDirectory(settings.DirectoryToBeDeleted, true, settings.RemoveEmptyParentDirectories);
 
                     if (settings.RemoveEmptyParentDirectories)
                     {

@@ -19,9 +19,7 @@ using System;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
-
-using Del.Library;
-
+using AlastairLundy.Extensions.IO.Directories;
 using DelDir.Cli.Localizations;
 
 using Spectre.Console;
@@ -103,7 +101,7 @@ public class DeleteManyDirectoriesCommand : Command<DeleteManyDirectoriesCommand
                             }
                         }
 
-                        directoryRemover.DeleteRecursively(directory, true);
+                        directoryRemover.DeleteDirectoryRecursively(directory, true);
 
                         if (settings.RemoveEmptyParentDirectories)
                         {
@@ -132,7 +130,7 @@ public class DeleteManyDirectoriesCommand : Command<DeleteManyDirectoriesCommand
                             }
                         }
 
-                        directoryRemover.DeleteDirectory(directory, true);
+                        directoryRemover.DeleteDirectory(directory, true, settings.RemoveEmptyParentDirectories);
 
                         if (settings.RemoveEmptyParentDirectories)
                         {
