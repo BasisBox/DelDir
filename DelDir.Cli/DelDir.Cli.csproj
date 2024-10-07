@@ -3,19 +3,22 @@
     <PropertyGroup>
         <OutputType>Exe</OutputType>
         <TargetFramework>net8.0</TargetFramework>
+        <RuntimeIdentifiers>win-x64;win-arm64;osx-x64;osx-arm64;linux-x64;linux-arm64;</RuntimeIdentifiers>
         <ImplicitUsings>disable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <ProductName>DelDir</ProductName>
         <AssemblyName>deldir</AssemblyName>
         <IsPackable>false</IsPackable>
-        <PublishSingleFile>true</PublishSingleFile>
-        <SelfContained>false</SelfContained>
-        <Title>deldir 
-</Title>
+        <PublishSingleFile>false</PublishSingleFile>
+        <SelfContained>true</SelfContained>
+        <Title>deldir</Title>
+        <Version>1.1.0</Version>
+        <AssemblyVersion>1.1.0</AssemblyVersion>
         <Authors />
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="AlastairLundy.Extensions.IO" Version="1.0.0-preview.1" />
+      <PackageReference Include="AlastairLundy.Extensions.IO" Version="1.*" />
       <PackageReference Include="Spectre.Console.Cli" Version="0.49.1" />
     </ItemGroup>
 
